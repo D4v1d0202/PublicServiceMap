@@ -10,7 +10,7 @@ const App = () => {
   return (
     <MapContainer
       center={position}
-      zoom={4.5}
+      zoom={10}
       scrollWheelZoom={true}
       style={{ minHeight: "100vh", minWidth: "100vw" }}
     >

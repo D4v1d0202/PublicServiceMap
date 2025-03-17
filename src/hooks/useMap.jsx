@@ -3,8 +3,8 @@ import axios from "axios";
 
 export const useMap = () => {
   const [position, setPosition] = useState({
-    lat: 47.21725,
-    lng: -1.55336,
+    lat: 50.94124275583906,
+    lng: 6.958220611243173,
   });
 
   useEffect(() => {
