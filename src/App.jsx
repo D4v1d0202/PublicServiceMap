@@ -10,13 +10,14 @@ const App = () => {
 
   return (
     <div className="relative h-screen w-screen">
-      {/* Map Container (Full Background) */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
+      {/* Map Container (Background but Interactive) */}
+      <div className="absolute top-0 left-0 w-full h-full">
         <MapContainer
           center={position}
           zoom={10}
           scrollWheelZoom={true}
           style={{ height: "100%", width: "100%" }}
+          className="z-0"
         >
           <TileLayer
             attribution='Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
@@ -30,10 +31,10 @@ const App = () => {
         </MapContainer>
       </div>
 
-      {/* Navigation Bar (Above the Map) */}
-      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center z-10 relative">
+      {/* Navigation Bar (Above Map) */}
+      <nav className="relative bg-blue-600 text-white p-4 flex justify-between items-center z-10">
         <h1 className="text-xl font-bold">Public Service Map von Köln</h1>
-        
+
         {/* Dropdown Button */}
         <div className="relative">
           <button
@@ -48,50 +49,24 @@ const App = () => {
 
           {/* Dropdown Menu */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-60 dark:bg-gray-700 dark:divide-gray-600">
+            <div className="absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-60 dark:bg-gray-700 dark:divide-gray-600 z-20">
               <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200">
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Public toilets</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Rental bikes</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Drinking water fountains</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Parking lots</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Public parks</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Sport fields</span>
-                  </label>
-                </li>
-                <li>
-                  <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                    <span className="ml-2 text-sm">Public food banks</span>
-                  </label>
-                </li>
+                {[
+                  "Public toilets",
+                  "Rental bikes",
+                  "Drinking water fountains",
+                  "Parking lots",
+                  "Public parks",
+                  "Sport fields",
+                  "Public food banks",
+                ].map((item, index) => (
+                  <li key={index}>
+                    <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                      <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
+                      <span className="ml-2 text-sm">{item}</span>
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
