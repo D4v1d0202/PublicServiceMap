@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type":"Feature","properties":{"street":"Hafenpark/Festplatz Deutz","Nr":"","Postagecode":"","neighborhood":"Deutz"},"geometry":{"type":"Point","coordinates":[6.969833093658437, 50.933997872888071]}},
+    {"type":"Feature","properties":{"street":"Cäsarstraße","Nr":"","Postagecode":"","neighborhood":"Bayenthal"},"geometry":{"type":"Point","coordinates":[6.967398283552706, 50.908588512264963]}},
+    {"type":"Feature","properties":{"street":"Kreuznacher Straße/Vorgebirgspark","Nr":"","Postagecode":"","neighborhood":"Zollstock"},"geometry":{"type":"Point","coordinates":[6.9534038456472045, 50.90824568006262]}},
+    {"type":"Feature","properties":{"street":"An der Bottmühle","Nr":"","Postagecode":"","neighborhood":"Altstadt/Süd"},"geometry":{"type":"Point","coordinates":[6.9631764706049593, 50.922639161117814]}},
+    {"type":"Feature","properties":{"street":"Agrippinaufer","Nr":"","Postagecode":"","neighborhood":"Neustadt/Süd"},"geometry":{"type":"Point","coordinates":[6.9680580072074845, 50.918652671897917]}},
+    {"type":"Feature","properties":{"street":"Skatefläche Rheinauhafen","Nr":"","Postagecode":"","neighborhood":"Neustadt/Süd"},"geometry":{"type":"Point","coordinates":[6.970174140214243, 50.917774665280902]}},
+    {"type":"Feature","properties":{"street":"Skateanlage Lentstraße","Nr":"","Postagecode":"","neighborhood":"Neustadt/Nord"},"geometry":{"type":"Point","coordinates":[6.9630952079858899, 50.958389898450086]}},
+    {"type":"Feature","properties":{"street":"Höninger Weg (Eichi)","Nr":"","Postagecode":"","neighborhood":"Raderthal"},"geometry":{"type":"Point","coordinates":[6.9445223777720946, 50.899302797878221]}},
+    {"type":"Feature","properties":{"street":"Kierberger Straße/Vorgebirgspark","Nr":"","Postagecode":"","neighborhood":"Zollstock"},"geometry":{"type":"Point","coordinates":[6.9505220674546742, 50.909939373484711]}},
+    {"type":"Feature","properties":{"street":"Venloer Straße/Innerer Grüngürtel Nord","Nr":"","Postagecode":"","neighborhood":"Neustadt/Nord"},"geometry":{"type":"Point","coordinates":[6.9308184100239876, 50.944936969546077]}},
+    {"type":"Feature","properties":{"street":"Baadenberger Straße/Gotthelfstraße","Nr":"","Postagecode":"","neighborhood":"Neuehrenfeld"},"geometry":{"type":"Point","coordinates":[6.9220032563587521, 50.961135797330847]}},
+    {"type":"Feature","properties":{"street":"Geschäftszentrum Neu-Vogelsang/Goldammerweg","Nr":"","Postagecode":"","neighborhood":"Vogelsang"},"geometry":{"type":"Point","coordinates":[6.8731151088665348, 50.962248287354306]}},
+    {"type":"Feature","properties":{"street":"Skatefläche Friedrich-Schmidt-Straße/Stadtwald","Nr":"","Postagecode":"","neighborhood":"Lindenthal"},"geometry":{"type":"Point","coordinates":[6.8906233926220537, 50.933249246322347]}},
+    {"type":"Feature","properties":{"street":"Stockholmer Allee/Polizeiwache","Nr":"","Postagecode":"","neighborhood":"Chorweiler"},"geometry":{"type":"Point","coordinates":[6.9037421355723589, 51.023935544910323]}},
+    {"type":"Feature","properties":{"street":"Marktplatz Vingst - Bolzplatz","Nr":"","Postagecode":"","neighborhood":"Vingst"},"geometry":{"type":"Point","coordinates":[7.0251218552714576, 50.93146741281835]}},
+    {"type":"Feature","properties":{"street":"Würzburger Straße/Bayreuther Straße","Nr":"","Postagecode":"","neighborhood":"Vingst"},"geometry":{"type":"Point","coordinates":[7.018059876425613, 50.935673026074355]}},
+    {"type":"Feature","properties":{"street":"Lohse-Rampe - Lohsestraße","Nr":"","Postagecode":"","neighborhood":"Nippes"},"geometry":{"type":"Point","coordinates":[6.9541490369084942, 50.95780611617122]}},
+    {"type":"Feature","properties":{"street":"Am Pescher Holz/Escher Straße","Nr":"","Postagecode":"","neighborhood":"Pesch"},"geometry":{"type":"Point","coordinates":[6.8715660849920148, 51.00233678649937]}},
+    {"type":"Feature","properties":{"street":"Nußbaumerstraße/Herkulesstraße","Nr":"","Postagecode":"","neighborhood":"Neuehrenfeld"},"geometry":{"type":"Point","coordinates":[6.9299557604652859, 50.955632128352683]}},
+    {"type":"Feature","properties":{"street":"Holzmarkt","Nr":"","Postagecode":"","neighborhood":"Altstadt/Süd"},"geometry":{"type":"Point","coordinates":[6.9616234094051972, 50.930253978348333]}},
+    {"type":"Feature","properties":{"street":"Merheimer Heideweg/Frankfurter Straße","Nr":"","Postagecode":"","neighborhood":"Höhenberg"},"geometry":{"type":"Point","coordinates":[7.0290731730452736, 50.942456877525814]}}
+  ]
+}

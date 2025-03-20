@@ -1,75 +1,105 @@
-import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { useMap } from "./hooks/useMap";
 
 const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
 
+const datasetLayers = {
+  toilets: "toilets_cgn.geojson",
+  bikes: "bikes_cgn.geojson",
+  disabledParking: "disabledParking_cgn.geojson",
+  sports: "sports_cgn.geojson",
+  hospitals: "hospitals_cgn.geojson",
+  water: "water_cgn.geojson",
+  parks: "parks_cgn.geojson",
+  food: "food_cgn.geojson",
+};
+
 const App = () => {
-  const { position } = useMap();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { position } = useMap() || { position: [50.9375, 6.9603] }; // Default to Cologne
+  const [geoJsonData, setGeoJsonData] = useState({});
+  const [activeLayers, setActiveLayers] = useState({
+    toilets: true,
+    bikes: true,
+    disabledParking: true,
+    sports: true,
+    hospitals: true,
+    water: true,
+    parks: true,
+    food: true,
+  });
+
+  // Fetch local GeoJSON files for each dataset
+  useEffect(() => {
+    const fetchGeoJSON = async () => {
+      const newData = {};
+      for (const [key, datasetFile] of Object.entries(datasetLayers)) {
+        try {
+          const response = await fetch(`geojson/${datasetFile}`); // Correct path for Vite public folder
+          const data = await response.json();
+          console.log(`Fetched ${key} data:`, data); // Check if data is valid
+          newData[key] = data;
+        } catch (error) {
+          console.error(`Error fetching ${key} data:`, error);
+        }
+      }
+      setGeoJsonData(newData);
+    };
+
+    fetchGeoJSON();
+  }, []);
+
+  // Toggle Layers
+  const toggleLayer = (layer) => {
+    setActiveLayers((prev) => ({ ...prev, [layer]: !prev[layer] }));
+  };
 
   return (
     <div className="relative h-screen w-screen">
-      {/* Map Container (Background but Interactive) */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      {/* Map Background (Ensure It’s Interactive) */}
+      <div className="absolute top-0 left-0 w-full h-full z-0">
         <MapContainer
           center={position}
-          zoom={10}
+          zoom={12}
           scrollWheelZoom={true}
+          className="pointer-events-auto"
           style={{ height: "100%", width: "100%" }}
-          className="z-0"
         >
           <TileLayer
             attribution='Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
             url={`https://api.mapbox.com/styles/v1/${VITE_USERNAME}/${VITE_STYLE_ID}/tiles/{z}/{x}/{y}?access_token=${VITE_ACCESS_TOKEN}`}
           />
-          <Marker position={position}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+
+          {/* Add layers dynamically */}
+          {Object.keys(activeLayers).map(
+            (layer) =>
+              activeLayers[layer] &&
+              geoJsonData[layer] &&
+              geoJsonData[layer].features?.length > 0 && ( // Ensure valid GeoJSON
+                <GeoJSON key={layer} data={geoJsonData[layer]} />
+              )
+          )}
         </MapContainer>
       </div>
 
-      {/* Navigation Bar (Above Map) */}
-      <nav className="relative bg-blue-600 text-white p-4 flex justify-between items-center z-10">
+      {/* Navigation Bar (Ensure It Doesn’t Block Map) */}
+      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center z-10 absolute top-0 left-0 w-full">
         <h1 className="text-xl font-bold">Public Service Map von Köln</h1>
 
-        {/* Dropdown Button */}
-        <div className="relative">
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-          >
-            Services Filter
-            <svg className="w-2.5 h-2.5 ml-3" aria-hidden="true" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-            </svg>
-          </button>
-
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-60 dark:bg-gray-700 dark:divide-gray-600 z-20">
-              <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200">
-                {[
-                  "Public toilets",
-                  "Rental bikes",
-                  "Drinking water fountains",
-                  "Parking lots",
-                  "Public parks",
-                  "Sport fields",
-                  "Public food banks",
-                ].map((item, index) => (
-                  <li key={index}>
-                    <label className="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                      <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"/>
-                      <span className="ml-2 text-sm">{item}</span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        {/* Filter Menu */}
+        <div className="bg-white p-3 rounded-lg shadow-md">
+          <p className="font-bold text-gray-700">Filter Services:</p>
+          {Object.keys(datasetLayers).map((layer) => (
+            <label key={layer} className="block text-sm text-gray-900">
+              <input
+                type="checkbox"
+                checked={activeLayers[layer]}
+                onChange={() => toggleLayer(layer)}
+                className="mr-2"
+              />
+              {layer.charAt(0).toUpperCase() + layer.slice(1)}
+            </label>
+          ))}
         </div>
       </nav>
     </div>

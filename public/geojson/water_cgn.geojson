@@ -1,0 +1,160 @@
+{"type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Zeppelinstraße",
+        "Nr": "",
+        "Postagecode": "50667",
+        "neighborhood": "Innenstadt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.948956517165744, 50.93742493846511]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Eigelstein",
+        "Nr": "135",
+        "Postagecode": "50668",
+        "neighborhood": "Altstadt-Nord"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.956994522293, 50.94941346119349]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Tempelstraße",
+        "Nr": "2A",
+        "Postagecode": "50679",
+        "neighborhood": "Deutz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.973190989038566, 50.93658960771468]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Bonner Str.",
+        "Nr": "24",
+        "Postagecode": "50677",
+        "neighborhood": "Neustadt-Süd"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.959892972561218, 50.91963253848832]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Maternusplatz",
+        "Nr": "",
+        "Postagecode": "50996",
+        "neighborhood": "Rodenkirchen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.994769234446522, 50.89267050420284]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Guts-Muths-Weg",
+        "Nr": "",
+        "Postagecode": "50933",
+        "neighborhood": "Lindenthal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.876405114520865, 50.93000320277]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Subbelrather Str.",
+        "Nr": "436",
+        "Postagecode": "50825",
+        "neighborhood": "Ehrenfeld"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.910070146883191, 50.9582146930277]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Nippes Lohsepark",
+        "Nr": "",
+        "Postagecode": "50733",
+        "neighborhood": "Nippes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.951078361895184, 50.95693018640227]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Barcelona-Allee",
+        "Nr": "",
+        "Postagecode": "51103",
+        "neighborhood": "Kalk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.995786909639054, 50.93948634075327]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Sonderburger Str.",
+        "Nr": "2",
+        "Postagecode": "51065",
+        "neighborhood": "Mülheim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.005972423216875, 50.95783088791381]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Blücherpark",
+        "Nr": "",
+        "Postagecode": "50739",
+        "neighborhood": "Bilderstöckchen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.928713119304107, 50.96183673818678]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Agrippinawerft",
+        "Nr": "99",
+        "Postagecode": "50678",
+        "neighborhood": "Südstadt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.97001354984803, 50.91820508325119]
+      }
+    }
+  ]
+}

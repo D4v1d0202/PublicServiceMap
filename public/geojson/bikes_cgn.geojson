@@ -1,0 +1,265 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Uni Boulevard",
+        "Nr": "",
+        "Postagecode": "50937",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.929403689868282, 50.9268953726978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Salierring",
+        "Nr": "",
+        "Postagecode": "50677",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.94373348771211, 50.928594711933144]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Engelbertstraße",
+        "Nr": "",
+        "Postagecode": "50674",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.939285097432261, 50.93351710196891]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Rudolfplatz",
+        "Nr": "1",
+        "Postagecode": "50674",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.941173372519601, 50.93668139757992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Mobilstation Josephstraße",
+        "Nr": "",
+        "Postagecode": "50678",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.958587707667553, 50.926804653633475]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Neumarkt",
+        "Nr": "2",
+        "Postagecode": "50667",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.948921649170206, 50.93694169869249]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Große Sandkaul",
+        "Nr": "",
+        "Postagecode": "50667",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.958405940366499, 50.93688761026299]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Marspfortengasse",
+        "Nr": "",
+        "Postagecode": "50667",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.958363024913375, 50.93945674034845]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "St Andreas",
+        "Nr": "",
+        "Postagecode": "50667",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.957204310671367, 50.94205276975806]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Marzellenstrasse",
+        "Nr": "",
+        "Postagecode": "50668",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.954414813383251, 50.94397265656396]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Breslauer Platz",
+        "Nr": "5",
+        "Postagecode": "50668",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.959822146587905, 50.94500016904352]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Maybachstraße",
+        "Nr": "",
+        "Postagecode": "50670",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.949075519085727, 50.94856025056208]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "LIDL Leyendeckerstraße",
+        "Nr": "",
+        "Postagecode": "50825",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.910984799660848, 50.952695650820345]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Rheinenergie Parkgürtel",
+        "Nr": "",
+        "Postagecode": "50823",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.932908255544392, 50.96192719570222]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Ottoplatz",
+        "Nr": "2",
+        "Postagecode": "50679",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.97801922233017, 50.94110293732758]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "RTL Picassoplatz",
+        "Nr": "",
+        "Postagecode": "50679",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.9731754736983, 50.945419279590666]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Bürgerpark Kalk",
+        "Nr": "",
+        "Postagecode": "51103",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.997620126063609, 50.940004352433014]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Mobilstation Severinswall",
+        "Nr": "",
+        "Postagecode": "50678",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.961590097430268, 50.92264664732091]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "LIDL Bonner Wall",
+        "Nr": "",
+        "Postagecode": "50677",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.955127377710874, 50.9191364525752]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "street": "Neusser Straße/Gürtel",
+        "Nr": "2",
+        "Postagecode": "50733",
+        "neighborhood": "Köln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.954600947789648, 50.972656730514586]
+      }
+    }
+  ]
+}

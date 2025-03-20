@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mapbox/vector-tile": "^2.0.3",
     "@tailwindcss/vite": "^4.0.14",
     "axios": "^1.7.9",
     "leaflet": "^1.9.4",
+    "pbf": "^4.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-leaflet": "^5.0.0",
