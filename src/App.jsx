@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import L from "leaflet"; // Import Leaflet for marker customization
 import { useMap } from "./hooks/useMap";
 
 const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
@@ -29,13 +30,52 @@ const App = () => {
     food: true,
   });
 
+  // Define different custom icons for each layer
+  const getCustomIcon = (layer) => {
+    // Convert layer name to lowercase to make it case-insensitive (optional)
+    const layerName = layer.toLowerCase();
+  
+    console.log("Selected Layer for Icon: ", layerName); // Debugging: Log layer name
+  
+    let iconUrl = "";
+  
+    switch (layerName) {
+      case "toilets":
+        iconUrl = "icons/bike.png"; // Set correct path for toilet icon
+        break;
+      case "bikes":
+        iconUrl = "icons/bike.png"; // Set correct path for bike icon
+        break;
+      case "parks":
+        iconUrl = "icons/bike.png"; // Set correct path for park icon
+        break;
+      case "hospitals":
+        iconUrl = "icons/bike.png"; // Set correct path for hospital icon
+        break;
+      case "food":
+        iconUrl = "icons/bike.png"; // Set correct path for food icon
+        break;
+      // More cases can be added here
+      default:
+        iconUrl = "icons/toilet.png"; // Fallback icon if no match is found
+    }
+  
+    return new L.Icon({
+      iconUrl,
+      iconSize: [32, 32], // Adjust size as needed
+      iconAnchor: [16, 32], // Adjust anchor point
+      popupAnchor: [0, -32], // Adjust popup anchor
+    });
+  };
+  
+
   // Fetch local GeoJSON files for each dataset
   useEffect(() => {
     const fetchGeoJSON = async () => {
       const newData = {};
       for (const [key, datasetFile] of Object.entries(datasetLayers)) {
         try {
-          const response = await fetch(`geojson/${datasetFile}`); // Correct path for Vite public folder
+          const response = await fetch(`geojson/${datasetFile}`);
           const data = await response.json();
           console.log(`Fetched ${key} data:`, data); // Check if data is valid
           newData[key] = data;
@@ -53,6 +93,16 @@ const App = () => {
   const toggleLayer = (layer) => {
     setActiveLayers((prev) => ({ ...prev, [layer]: !prev[layer] }));
   };
+
+  // Function to customize marker based on dataset
+  const pointToLayer = (feature, latlng) => {
+    const layerType = feature.properties.layer || "default";  // Fallback to 'default' if missing
+    console.log("Layer Type: ", layerType); // Debugging: Check what layer is being passed
+  
+    const icon = getCustomIcon(layerType);  // Get custom icon based on the layer
+    return L.marker(latlng, { icon });
+  };
+  
 
   return (
     <div className="relative h-screen w-screen">
@@ -76,7 +126,11 @@ const App = () => {
               activeLayers[layer] &&
               geoJsonData[layer] &&
               geoJsonData[layer].features?.length > 0 && ( // Ensure valid GeoJSON
-                <GeoJSON key={layer} data={geoJsonData[layer]} />
+                <GeoJSON
+                  key={layer}
+                  data={geoJsonData[layer]}
+                  pointToLayer={pointToLayer} // Use pointToLayer to customize markers
+                />
               )
           )}
         </MapContainer>
