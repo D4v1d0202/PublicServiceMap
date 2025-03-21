@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Popup } from "react-leaflet";
 import { useMap } from "./hooks/useMap";
 
 const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
@@ -19,14 +19,14 @@ const App = () => {
   const { position } = useMap() || { position: [50.9375, 6.9603] }; // Default to Cologne
   const [geoJsonData, setGeoJsonData] = useState({});
   const [activeLayers, setActiveLayers] = useState({
-    toilets: true,
-    bikes: true,
-    disabledParking: true,
-    sports: true,
-    hospitals: true,
-    water: true,
-    parks: true,
-    food: true,
+    toilets: false,
+    bikes: false,
+    disabledParking: false,
+    sports: false,
+    hospitals: false,
+    water: false,
+    parks: false,
+    food: false,
   });
 
   // Fetch local GeoJSON files for each dataset
@@ -35,9 +35,9 @@ const App = () => {
       const newData = {};
       for (const [key, datasetFile] of Object.entries(datasetLayers)) {
         try {
-          const response = await fetch(`geojson/${datasetFile}`); // Correct path for Vite public folder
+          const response = await fetch(`geojson/${datasetFile}`);
           const data = await response.json();
-          console.log(`Fetched ${key} data:`, data); // Check if data is valid
+          console.log(`Fetched ${key} data:`, data);
           newData[key] = data;
         } catch (error) {
           console.error(`Error fetching ${key} data:`, error);
@@ -49,6 +49,37 @@ const App = () => {
     fetchGeoJSON();
   }, []);
 
+  // Function to create a popup with a Google Maps link
+  const onEachFeature = (feature, layer, dataType) => {
+    if (feature.geometry && feature.geometry.coordinates) {
+      const [lon, lat] = feature.geometry.coordinates;
+  
+      // Construct address from available properties
+      const street = feature.properties?.street || "Unknown Street";
+      const number = feature.properties?.Nr ? ` ${feature.properties.Nr}` : "";
+      const postcode = feature.properties?.Postagecode || "";
+      const neighborhood = feature.properties?.neighborhood || "Unknown Neighborhood";
+  
+      const address = `${street}${number}, ${postcode} ${neighborhood}`;
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+  
+      // Format type properly (capitalize first letter)
+      const formattedType = dataType.charAt(0).toUpperCase() + dataType.slice(1);
+  
+      layer.bindPopup(`
+        <div>
+          <strong>Type:</strong> ${formattedType} <br/>
+          <strong>Address:</strong> ${address} <br/>
+          <a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">
+            Open in Google Maps
+          </a>
+        </div>
+      `);
+    }
+  };
+  
+  
+
   // Toggle Layers
   const toggleLayer = (layer) => {
     setActiveLayers((prev) => ({ ...prev, [layer]: !prev[layer] }));
@@ -56,7 +87,7 @@ const App = () => {
 
   return (
     <div className="relative h-screen w-screen">
-      {/* Map Background (Ensure It’s Interactive) */}
+      {/* Map Background */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
         <MapContainer
           center={position}
@@ -72,17 +103,22 @@ const App = () => {
 
           {/* Add layers dynamically */}
           {Object.keys(activeLayers).map(
-            (layer) =>
-              activeLayers[layer] &&
-              geoJsonData[layer] &&
-              geoJsonData[layer].features?.length > 0 && ( // Ensure valid GeoJSON
-                <GeoJSON key={layer} data={geoJsonData[layer]} />
-              )
-          )}
+  (layer) =>
+    activeLayers[layer] &&
+    geoJsonData[layer] &&
+    geoJsonData[layer].features?.length > 0 && (
+      <GeoJSON
+        key={layer}
+        data={geoJsonData[layer]}
+        onEachFeature={(feature, layerInstance) => onEachFeature(feature, layerInstance, layer)}
+      />
+    )
+)}
+
         </MapContainer>
       </div>
 
-      {/* Navigation Bar (Ensure It Doesn’t Block Map) */}
+      {/* Navigation Bar */}
       <nav className="bg-blue-600 text-white p-4 flex justify-between items-center z-10 absolute top-0 left-0 w-full">
         <h1 className="text-xl font-bold">Public Service Map von Köln</h1>
 
