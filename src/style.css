@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Das gesamte Fenster nutzen */
+  }
+  
+  #root {
+    width: 100%; /* Die gesamte Breite nutzen */
+    height: calc(100% - 100px); /* Höhe des Bildschirms minus 80px (Platz für die größere Textbox unten) */
+    border: 2px solid #333; /* Optional: Ein Rahmen */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Hintergrundfarbe */
+    overflow: auto; /* Verhindert, dass der Inhalt herausragt */
+  }
+  
+  .textbox-container {
+    width: 100%; /* Textbox über die gesamte Breite unten */
+    height: 100px; /* Fixe Höhe (größerer Bereich) */
+    display: flex;
+    align-items: center; /* Zentriert den Textbox-Inhalt vertikal */
+    justify-content: center; /* Zentriert den Textbox-Inhalt horizontal */
+    position: absolute;
+    bottom: 0;
+    background-color: #ffffff; /* Hintergrund der Textbox */
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Schatten nach oben */
+    border-top: 1px solid #ddd; /* Optional: Dünne obere Linie */
+  }
+  
+  .textbox {
+    width: 95%; /* Breite der Textbox (fast volle Breite) */
+    height: 60px; /* Vergrößerte Höhe */
+    border: 1px solid #ccc;
+    border-radius: 30px; /* Runde Ecken für größere Textbox */
+    padding: 0 20px; /* Innenabstand */
+    font-size: 18px; /* Größere Schriftgröße */
+    outline: none; /* Entfernt den Fokusrahmen */
+  }
+  
